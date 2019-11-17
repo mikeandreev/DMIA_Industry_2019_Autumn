@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # coding=utf-8
 
 from sklearn.model_selection import cross_val_score
@@ -34,7 +35,7 @@ class Checker(object):
             signal.alarm(60)
             gb_impl = imp.load_source('gb_impl_{}'.format(self.application), script_path)
             AUTHOR_EMAIL = gb_impl.AUTHOR_EMAIL
-            self.application += 1
+            #self.application += 1
             # Обучаться будет на 100 итерациях, чтобы одинаковый масштаб был
             algo = gb_impl.SimpleGB(
                 tree_params_dict=gb_impl.TREE_PARAMS_DICT,
@@ -48,4 +49,6 @@ class Checker(object):
 
 
 if __name__ == '__main__':
-    print(Checker().check(SCRIPT_DIR + '/gb_impl_example.py'))
+    #print(Checker().check(SCRIPT_DIR + '/gb_impl_ma.py'))
+    print(Checker().check(SCRIPT_DIR + '/mygb_mikeandreev.py'))
+    #print(Checker().check(SCRIPT_DIR + '/gb_impl_example.py'))
